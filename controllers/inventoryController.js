@@ -5,7 +5,7 @@ const userModel = require("../models/userModel");
 //CREATE INVENTORY
 const createInventoryController = async(req, res) => {
     try {
-        const {email, inventoryType} = req.body;
+        const {email} = req.body;
         //validation
         const user = await userModel.findOne({email})
         if(!user){
@@ -68,6 +68,8 @@ const createInventoryController = async(req, res) => {
                 });
             }
             req.body.hospital = user?._id;
+        }else{
+            req.body.donar = user?._id;
         }
 
         //Save record
