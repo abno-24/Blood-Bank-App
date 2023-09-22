@@ -1,17 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import Layout from '../../components/Shared/Layout/Layout';
+import React, { useEffect, useState } from 'react'
+import Layout from '../../components/Shared/Layout/Layout'
 import API from '../../services/API';
-import moment from "moment";
+import moment from 'moment';
 
-const Hospitals = () => {
+const OrganisationPage = () => {
     const [data, setData] = useState([]);
-    //find hospital records
-    const getHospitals = async () => {
+    //find organisation records
+    const getOrganisations = async () => {
         try{
-            const {data} = await API.get("/inventory/get-hospitals");
+            const {data} = await API.get("/inventory/get-organisation");
             // console.log(data);
             if(data?.success){
-                setData(data?.hospitals);
+                setData(data?.organisations);
             }
         } catch (error) {
             console.log(error);
@@ -19,7 +19,7 @@ const Hospitals = () => {
     };
 
     useEffect(() => {
-        getHospitals();
+        getOrganisations();
     }, []);
 
     return (
@@ -37,7 +37,7 @@ const Hospitals = () => {
                 <tbody>
                     {data?.map((record) => (
                     <tr key={record._id}>
-                        <td>{record.hospitalName}</td>
+                        <td>{record.name || record.organisationName + " (ORG)"}</td>
                         <td>{record.email}</td>
                         <td>{record.phone}</td>
                         <td>{record.address}</td>
@@ -52,4 +52,4 @@ const Hospitals = () => {
     );
 };
 
-export default Hospitals;
+export default OrganisationPage;

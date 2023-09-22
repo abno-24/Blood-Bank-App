@@ -15,14 +15,14 @@ const userSchema = new mongoose.Schema({
             return false;
         }
     },
-    organisationName:{
-        type:String,
-        required:function(){
-            if(this.role === "organisation" ){
+    organisationName: {
+        type: String,
+        required: function () {
+            if (this.role === "organisation") {
                 return true;
             }
             return false;
-        }
+        },
     },
     hospitalName:{
         type:String,
