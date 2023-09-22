@@ -35,6 +35,18 @@ const Sidebar = () => {
                         <Link to="/organisation">Organisation</Link>
                     </div>
                 )}
+                {user?.role === "hospital" && (
+                    <>
+                        <div className={`menu-item ${location.pathname === "/donar" && "active"}`}>
+                            <i className="fa-solid fa-hand-holding-medical"></i>
+                            <Link to="/donar">Donar</Link>
+                        </div>
+                        <div className={`menu-item ${location.pathname === "/organisation" && "active"}`}>
+                            <i className="fa-solid fa-building-ngo"></i>
+                            <Link to="/organisation">Organisation</Link>
+                        </div>
+                    </>
+                )}
 
                     {/* {userMenu.map((menu) => {
                         const isActive = location.pathname === menu.path;
