@@ -11,6 +11,7 @@ import Hospitals from "./pages/Dashboard/Hospitals";
 import OrganisationPage from "./pages/Dashboard/OrganisationPage";
 import Consumer from "./pages/Dashboard/Consumer";
 import Donation from "./pages/Donation";
+import Analytics from "./pages/Dashboard/Analytics";
 
 function App() {
   return (
@@ -22,6 +23,14 @@ function App() {
           element={
             <ProtectedRoute>
               <Hospitals />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/analytics" 
+          element={
+            <ProtectedRoute>
+              <Analytics />
             </ProtectedRoute>
           }
         />
