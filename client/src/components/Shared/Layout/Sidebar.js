@@ -29,23 +29,23 @@ const Sidebar = () => {
                         </div>
                     </>
                 )}
-                {user?.role === "donar" && (
+                {(user?.role === "donar" || user?.role === "hospital") && (
                     <div className={`menu-item ${location.pathname === "/organisation" && "active"}`}>
-                        <i className="fa-solid fa-building-ngo"></i>
+                        <i className="fa-sharp fa-solid fa-building-ngo"></i>
                         <Link to="/organisation">Organisation</Link>
                     </div>
                 )}
                 {user?.role === "hospital" && (
-                    <>
-                        <div className={`menu-item ${location.pathname === "/donar" && "active"}`}>
-                            <i className="fa-solid fa-hand-holding-medical"></i>
-                            <Link to="/donar">Donar</Link>
-                        </div>
-                        <div className={`menu-item ${location.pathname === "/organisation" && "active"}`}>
-                            <i className="fa-solid fa-building-ngo"></i>
-                            <Link to="/organisation">Organisation</Link>
-                        </div>
-                    </>
+                    <div className={`menu-item ${location.pathname === "/consumer" && "active"}`}>
+                        <i className="fa-sharp fa-solid fa-building-ngo"></i>
+                        <Link to="/consumer">Consumer</Link>
+                    </div>
+                )}
+                {user?.role === "donar" && (
+                    <div className={`menu-item ${location.pathname === "/donation" && "active"}`}>
+                        <i className="fa-sharp fa-solid fa-building-ngo"></i>
+                        <Link to="/donation">Donation</Link>
+                    </div>
                 )}
 
                     {/* {userMenu.map((menu) => {

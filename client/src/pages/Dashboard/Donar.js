@@ -47,7 +47,7 @@ const Donar = () => {
                 </tbody>
             </table>
         </Layout>
-    )
-}
+    );
+};
 
 export default Donar
