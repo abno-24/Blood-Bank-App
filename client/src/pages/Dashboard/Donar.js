@@ -35,14 +35,14 @@ const Donar = () => {
                 </thead>
                 <tbody>
                     {data?.map((record) => (
-                    <tr key={record._id}>
-                        <td>{record.name || record.organisationName + " (ORG)"}</td>
-                        <td>{record.email}</td>
-                        <td>{record.phone}</td>
-                        <td>
-                            {moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}
-                        </td>
-                    </tr>
+                        <tr key={record._id}>
+                            <td>{record.name || record.organisationName + " (ORG)"}</td>
+                            <td>{record.email}</td>
+                            <td>{record.phone}</td>
+                            <td>
+                                {moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}
+                            </td>
+                        </tr>
                     ))}
                 </tbody>
             </table>
@@ -50,4 +50,4 @@ const Donar = () => {
     );
 };
 
-export default Donar
+export default Donar;

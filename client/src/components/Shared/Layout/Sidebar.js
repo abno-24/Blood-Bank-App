@@ -6,9 +6,10 @@ import '../../../styles/Layout.css';
 
 const Sidebar = () => {
     //GET USER STATE
-    const { user } = useSelector(state => state.auth)
+    const { user } = useSelector((state) => state.auth)
 
     const location = useLocation();
+    
     return (
         <div>
             <div className="sidebar">

@@ -15,13 +15,13 @@ const HomePage = () => {
      //get function
     const getBloodRecords = async () => {
         try {
-        const { data } = await API.get("/inventory/get-inventory");
-        if (data?.success) {
-            setData(data?.inventory);
-            // console.log(data);
-        }
+            const { data } = await API.get("/inventory/get-inventory");
+            if (data?.success) {
+                setData(data?.inventory);
+                // console.log(data);
+            }
         } catch (error) {
-        console.log(error);
+            console.log(error);
         }
     };
 
@@ -36,7 +36,7 @@ const HomePage = () => {
                 <Spinner />
             ) : (
                 <>
-                    <div className="container-fluid">
+                    <div className="container">
                         <h4
                         className="ms-4"
                         data-bs-toggle="modal"
@@ -58,15 +58,15 @@ const HomePage = () => {
                             </thead>
                             <tbody>
                                 {data?.map((record) => (
-                                <tr key={record._id}>
-                                    <td>{record.bloodGroup}</td>
-                                    <td>{record.inventoryType}</td>
-                                    <td>{record.quantity} (ML)</td>
-                                    <td>{record.email}</td>
-                                    <td>
-                                        {moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}
-                                    </td>
-                                </tr>
+                                    <tr key={record._id}>
+                                        <td>{record.bloodGroup}</td>
+                                        <td>{record.inventoryType}</td>
+                                        <td>{record.quantity} (ML)</td>
+                                        <td>{record.email}</td>
+                                        <td>
+                                            {moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}
+                                        </td>
+                                    </tr>
                                 ))}
                             </tbody>
                         </table>

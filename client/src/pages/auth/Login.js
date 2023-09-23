@@ -1,11 +1,10 @@
-import React from 'react'
-import Form from '../../components/Shared/Form/Form'
-import { UseSelector, useSelector } from 'react-redux'
-import Spinner from '../../components/Shared/Spinner'
-import { toast } from 'react-toastify'
+import React from 'react';
+import Form from '../../components/Shared/Form/Form';
+import { useSelector } from 'react-redux';
+import Spinner from '../../components/Shared/Spinner';
 
 const Login = () => {
-    const {loading, error} = useSelector(state => state.auth)
+    const {loading, error} = useSelector((state) => state.auth)
     return (
         <>
         {error && <span>{alert(error)}</span>}
@@ -19,14 +18,14 @@ const Login = () => {
                     <div className="col-md-4 form-container">
                         <Form 
                             SubmitBtn={"Login"}
-                            formTitle={"User Login"}
-                            formType={'login'}
+                            formTitle={"Login Page"}
+                            formType={"login"}
                         />
                     </div>
                 </div>
             )}
         </>
-    )
-}
+    );
+};
 
-export default Login
+export default Login;

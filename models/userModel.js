@@ -4,7 +4,7 @@ const userSchema = new mongoose.Schema({
     role:{
         type:String,
         required:[true, 'Role is required'],
-        enum:['admin','donar','organisation','hospital']
+        enum:['admin', 'organisation','donar','hospital'],
     },
     name:{
         type:String,
@@ -13,7 +13,7 @@ const userSchema = new mongoose.Schema({
                 return true;
             }
             return false;
-        }
+        },
     },
     organisationName: {
         type: String,
@@ -31,7 +31,7 @@ const userSchema = new mongoose.Schema({
                 return true;
             }
             return false;
-        }
+        },
     },
     email:{
         type:String,
@@ -50,7 +50,7 @@ const userSchema = new mongoose.Schema({
         required:[true, 'required field'],
     },
     phone:{
-        type:Number,
+        type:String,
         required:[true, 'required field'],
     }
 }, {timestamps:true});

@@ -64,7 +64,7 @@ const bloodGroupDetailsController = async (req, res) => {
         console.log(error);
         return res.status(500).send({
             success: false,
-            message: "Error in data API",
+            message: "Error In Bloodgroup Data Analytics API",
             error,
         });
     }

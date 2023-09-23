@@ -6,11 +6,11 @@ import API from '../../services/API';
 
 const OrganisationPage = () => {
     // get current user
-    const { user } = useSelector(state => state.auth);
+    const { user } = useSelector((state) => state.auth);
 
     const [data, setData] = useState([]);
     //find organisation records
-    const getOrganisations = async () => {
+    const getOrg = async () => {
         try{
             if(user?.role === "donar") {
                 const {data} = await API.get("/inventory/get-organisation");
@@ -32,7 +32,7 @@ const OrganisationPage = () => {
     };
 
     useEffect(() => {
-        getOrganisations();
+        getOrg();
     }, [user]);
 
     return (
@@ -49,15 +49,15 @@ const OrganisationPage = () => {
                 </thead>
                 <tbody>
                     {data?.map((record) => (
-                    <tr key={record._id}>
-                        <td>{record.name || record.organisationName + " (ORG)"}</td>
-                        <td>{record.email}</td>
-                        <td>{record.phone}</td>
-                        <td>{record.address}</td>
-                        <td>
-                            {moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}
-                        </td>
-                    </tr>
+                        <tr key={record._id}>
+                            <td>{record.organisationName}</td>
+                            <td>{record.email}</td>
+                            <td>{record.phone}</td>
+                            <td>{record.address}</td>
+                            <td>
+                                {moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}
+                            </td>
+                        </tr>
                     ))}
                 </tbody>
             </table>

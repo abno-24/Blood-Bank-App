@@ -4,7 +4,7 @@ import API from '../../services/API'
 import { getCurrentUser } from '../../redux/features/auth/authActions'
 import { Navigate } from "react-router-dom";
 
-const ProtectedRoute = ({children}) => {
+const ProtectedRoute = ({ children }) => {
     const dispatch = useDispatch();
 
     //get current user
@@ -18,7 +18,7 @@ const ProtectedRoute = ({children}) => {
             localStorage.clear();
             console.log(error);
         }
-    }
+    };
 
     useEffect(() => {
         getUser();
@@ -26,7 +26,7 @@ const ProtectedRoute = ({children}) => {
 
     if(localStorage.getItem('token')){
         return children;
-    }else{
+    } else {
         return <Navigate to="/login" />;
     }
 };

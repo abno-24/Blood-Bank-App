@@ -8,6 +8,6 @@ const connectDB = async () => {
     } catch (error) {
         console.log(`Mongodb Error ${error}`.bgRed.white);
     }
-}
+};
 
 module.exports = connectDB;

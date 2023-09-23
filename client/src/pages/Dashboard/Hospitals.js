@@ -36,15 +36,15 @@ const Hospitals = () => {
                 </thead>
                 <tbody>
                     {data?.map((record) => (
-                    <tr key={record._id}>
-                        <td>{record.hospitalName}</td>
-                        <td>{record.email}</td>
-                        <td>{record.phone}</td>
-                        <td>{record.address}</td>
-                        <td>
-                            {moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}
-                        </td>
-                    </tr>
+                        <tr key={record._id}>
+                            <td>{record.hospitalName}</td>
+                            <td>{record.email}</td>
+                            <td>{record.phone}</td>
+                            <td>{record.address}</td>
+                            <td>
+                                {moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}
+                            </td>
+                        </tr>
                     ))}
                 </tbody>
             </table>

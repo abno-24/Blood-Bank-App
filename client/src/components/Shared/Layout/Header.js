@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 
 const Header = () => {
-    const {user} = useSelector(state => state.auth);
+    const {user} = useSelector((state) => state.auth);
     const navigate = useNavigate();
     const location = useLocation();
     //logout handler
@@ -18,7 +18,7 @@ const Header = () => {
         <>
             <nav className='navbar'>
                 <div className="container-fluid">
-                    <div className="navbar-brand mb-0">
+                    <div className="navbar-brand h1">
                         <BiDonateBlood color='red' />Blood Bank App
                     </div>
                     <ul className="navbar-nav flex-row">
@@ -29,7 +29,9 @@ const Header = () => {
                             </p>
                         </li>
                         {
-                            location.pathname === "/" ? (
+                            location.pathname === "/" ||
+                            location.pathname === "/donar" || 
+                            location.pathname === "/hospital" ? (
                                 <li className="nav-item mx-3">
                                     <Link to="/analytics" className="nav-link">
                                         Analytics
@@ -50,7 +52,7 @@ const Header = () => {
                 </div>
             </nav>
         </>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;

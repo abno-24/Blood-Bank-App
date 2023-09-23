@@ -9,20 +9,21 @@ const Modal = () => {
     const[bloodGroup, setBloodGroup] = useState("");
     const[quantity, setQuantity] = useState(0);
     const[email, setEmail] = useState("");
-    const {user} = useSelector(state => state.auth);
+    const {user} = useSelector((state) => state.auth);
 
-    const handleModalSubmit = async(e) => {
+    // handle modal data
+    const handleModalSubmit = async() => {
         try {
             if(!bloodGroup || !quantity){
                 return alert('All fields are required');
             }
             const {data} = await API.post('/inventory/create-inventory', {
                 email,
-                organisation:user?._id,
+                organisation: user?._id,
                 inventoryType,
                 bloodGroup,
-                quantity
-            })
+                quantity,
+            });
             if(data?.success){
                 alert('New record created');
                 window.location.reload();
@@ -110,7 +111,7 @@ const Modal = () => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
 export default Modal;
